@@ -13,7 +13,7 @@ const Registration = lazy(() => import('../views/Registration'));
 const Contacts = lazy(() => import('../views/contacts'));
 
 export const App = () => {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   const dispatch = useDispatch();
 
