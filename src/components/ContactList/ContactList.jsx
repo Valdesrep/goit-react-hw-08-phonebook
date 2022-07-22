@@ -5,6 +5,10 @@ import {
   useGetAllContactsQuery,
   useDeleteContactsMutation,
 } from 'redux/contactApi';
+import ListGroup from 'react-bootstrap/ListGroup';
+
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ContactList = () => {
   const { data, error, isError, isFetching } = useGetAllContactsQuery();
@@ -27,25 +31,25 @@ const ContactList = () => {
       {isFetching && Notiflix.Loading.circle('Please wait ...')}
       {!isFetching && Notiflix.Loading.remove()}
       {contacts && (
-        <ul className={s.list}>
+        <ListGroup className={s.ul}>
           {contacts.map(({ id, name, number }) => {
             return (
-              <li className={s.item} key={id}>
-                <span>
-                  {name}: {number}
+              <ListGroup.Item className={s.Items} variant="light" key={id}>
+                <span className={s.text}>
+                  <b>{name}</b> : {number}
                 </span>
-                <button
-                  className={s.delete}
+                <Button
                   type="button"
                   onClick={() => deleteContact(id)}
                   disabled={isLoading}
+                  variant="dark"
                 >
                   Delete
-                </button>
-              </li>
+                </Button>
+              </ListGroup.Item>
             );
           })}
-        </ul>
+        </ListGroup>
       )}
     </div>
   );

@@ -1,0 +1,15 @@
+.text {
+  display: block;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+.button {
+  display: block;
+}
+.Box {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

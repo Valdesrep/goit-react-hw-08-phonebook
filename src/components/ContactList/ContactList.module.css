@@ -1,26 +1,20 @@
-.list {
-  display: block;
-  list-style: none;
-  width: 300px;
-  margin: auto;
-}
 .title {
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.delete {
-  display: inline-block;
-  margin-left: 10px;
-  padding: 3px;
 
-  border-radius: 5px;
-}
-.item {
-  display: block;
-  padding: 10px;
-  border: 1px solid black;
-  width: 300px;
-  border-radius: 5px;
+.Items {
+  width: 400px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 5px;
+}
+.ul {
+  width: 600px;
+  margin: auto;
+}
+.text {
+  font-weight: 500;
+  font-size: 18px;
 }

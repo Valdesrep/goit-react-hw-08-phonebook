@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../redux/auth/authOperation';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import s from './LogReg.module.css';
 
 export default function Registration() {
   const dispatch = useDispatch();
@@ -35,39 +39,47 @@ export default function Registration() {
 
   return (
     <div>
-      <form onSubmit={onFormSubmit}>
-        <label>
-          Name
-          <input
+      <form className={s.form} onSubmit={onFormSubmit}>
+        <Form.Group className="m-3" controlId="formBasicEmail">
+          <Form.Label htmlFor="inputPassword5">Name</Form.Label>
+          <Form.Control
             name="name"
             value={name}
             onChange={onInputChange}
             type="text"
             placeholder="Enter name"
+            id="inputPassword5"
+            aria-describedby="passwordHelpBlock"
           />
-        </label>
-        <label>
-          Email
-          <input
+        </Form.Group>
+        <Form.Group className="m-3" controlId="formBasicEmail">
+          <Form.Label htmlFor="inputPassword4">Email</Form.Label>
+          <Form.Control
             name="email"
             value={email}
             onChange={onInputChange}
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             type="email"
             placeholder="Enter email"
+            id="inputPassword4"
+            aria-describedby="passwordHelpBlock"
           />
-        </label>
-        <label>
-          Password
-          <input
+        </Form.Group>
+        <Form.Group className="m-3" controlId="formBasicEmail">
+          <Form.Label htmlFor="inputPassword3">Password</Form.Label>
+          <Form.Control
             name="password"
             value={password}
-            onChange={onInputChange}
             type="password"
+            id="inputPassword3"
+            aria-describedby="passwordHelpBlock"
+            onChange={onInputChange}
             placeholder="Password"
           />
-        </label>
-        <button type="submit">Register</button>
+        </Form.Group>
+        <Button className="m-3" type="submit" variant="dark">
+          Register
+        </Button>
       </form>
     </div>
   );

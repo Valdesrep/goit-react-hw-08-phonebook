@@ -5,6 +5,8 @@ import { fetchCurrentUser } from '../redux/auth/authOperation';
 import authSelectors from 'redux/auth/authSelectors';
 import PrivateRoute from './PrivateRoute';
 import UserMenu from 'components/UserMenu/UserMenu';
+import PublicRoute from './PublicRoute';
+import Container from 'react-bootstrap/Container';
 
 const Login = lazy(() => import('../views/Login'));
 const Registration = lazy(() => import('../views/Registration'));
@@ -26,17 +28,20 @@ export const App = () => {
   return (
     <>
       <UserMenu />
-      <Suspense fallback={<h1>Loading....</h1>}>
-        <Routes>
-          <Route path="register" element={<Registration />} />
-          <Route path="login" element={<Login />} />
-
-          <Route element={<PrivateRoute />}>
-            <Route path="/contacts" element={<Contacts />} />
-          </Route>
-          <Route path="*" element={<Navigate replace to="/login" />} />
-        </Routes>
-      </Suspense>
+      <Container>
+        <Suspense fallback={<h1>Loading....</h1>}>
+          <Routes>
+            <Route element={<PublicRoute />}>
+              <Route path="register" element={<Registration />} />
+              <Route path="login" element={<Login />} />
+            </Route>
+            <Route element={<PrivateRoute />}>
+              <Route path="/contacts" element={<Contacts />} />
+            </Route>
+            <Route path="*" element={<Navigate replace to="/login" />} />
+          </Routes>
+        </Suspense>
+      </Container>
     </>
   );
 };
