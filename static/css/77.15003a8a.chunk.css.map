@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/77.15003a8a.chunk.css","mappings":"AAAA,oBACE,WAAY,CACZ,WACF","sources":["views/LogReg.module.css"],"sourcesContent":[".form {\n  margin: auto;\n  width: 600px;\n}\n"],"names":[],"sourceRoot":""}
