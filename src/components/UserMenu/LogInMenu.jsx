@@ -21,7 +21,7 @@ export default function LogInMenu() {
         variant="outline-light"
       >
         Exit
-      </Button>{' '}
+      </Button>
     </div>
   );
 }

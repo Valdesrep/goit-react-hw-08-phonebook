@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './LogReg.module.css';
+import Notiflix from 'notiflix';
 
 export default function Registration() {
   const dispatch = useDispatch();
@@ -14,7 +15,9 @@ export default function Registration() {
 
   const onFormSubmit = event => {
     event.preventDefault();
+    Notiflix.Loading.circle('Please wait ...');
     dispatch(registerUser({ name, email, password }));
+    Notiflix.Loading.remove();
     setName('');
     setEmail('');
     setPassword('');

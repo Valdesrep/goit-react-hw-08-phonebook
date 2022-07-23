@@ -10,7 +10,7 @@ import Container from 'react-bootstrap/Container';
 
 const Login = lazy(() => import('../views/Login'));
 const Registration = lazy(() => import('../views/Registration'));
-const Contacts = lazy(() => import('../views/contacts'));
+const Contacts = lazy(() => import('../views/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();

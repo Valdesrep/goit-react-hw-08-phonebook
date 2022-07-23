@@ -6,7 +6,6 @@ import {
   useDeleteContactsMutation,
 } from 'redux/contactApi';
 import ListGroup from 'react-bootstrap/ListGroup';
-
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
