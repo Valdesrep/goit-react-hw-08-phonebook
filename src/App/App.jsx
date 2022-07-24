@@ -11,7 +11,7 @@ import Spiner from '../components/Spiner/Spiner';
 
 const Login = lazy(() => import('../views/Login'));
 const Registration = lazy(() => import('../views/Registration'));
-const Contacts = lazy(() => import('../views/Contacts'));
+const Contacts = lazy(() => import('../views/contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
