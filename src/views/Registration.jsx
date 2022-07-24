@@ -15,6 +15,10 @@ export default function Registration() {
 
   const onFormSubmit = event => {
     event.preventDefault();
+    if (name === '' || email === '' || password === '') {
+      Notiflix.Notify.failure('Enter data');
+      return;
+    }
     Notiflix.Loading.circle('Please wait ...');
     dispatch(registerUser({ name, email, password }));
     Notiflix.Loading.remove();

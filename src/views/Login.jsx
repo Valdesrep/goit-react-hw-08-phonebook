@@ -14,6 +14,10 @@ export default function Login() {
 
   const onFormSubmit = event => {
     event.preventDefault();
+    if (email === '' || password === '') {
+      Notiflix.Notify.failure('Enter data');
+      return;
+    }
     Notiflix.Loading.circle('Please wait ...');
     dispatch(logIn({ email, password }));
     Notiflix.Loading.remove();
