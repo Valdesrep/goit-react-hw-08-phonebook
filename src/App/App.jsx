@@ -7,6 +7,7 @@ import PrivateRoute from './PrivateRoute';
 import UserMenu from 'components/UserMenu/UserMenu';
 import PublicRoute from './PublicRoute';
 import Container from 'react-bootstrap/Container';
+import Spiner from '../components/Spiner/Spiner';
 
 const Login = lazy(() => import('../views/Login'));
 const Registration = lazy(() => import('../views/Registration'));
@@ -17,6 +18,7 @@ export const App = () => {
   const navigate = useNavigate();
 
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const isRefresh = useSelector(authSelectors.getIsRefresh);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -28,21 +30,27 @@ export const App = () => {
 
   return (
     <>
-      <UserMenu />
-      <Container>
-        <Suspense fallback={<h1>Loading....</h1>}>
-          <Routes>
-            <Route element={<PublicRoute />}>
-              <Route path="register" element={<Registration />} />
-              <Route path="login" element={<Login />} />
-            </Route>
-            <Route element={<PrivateRoute />}>
-              <Route path="/contacts" element={<Contacts />} />
-            </Route>
-            <Route path="*" element={<Navigate to="/login" />} />
-          </Routes>
-        </Suspense>
-      </Container>
+      {isRefresh ? (
+        <Spiner />
+      ) : (
+        <>
+          <UserMenu />
+          <Container>
+            <Suspense fallback={<h1>Loading....</h1>}>
+              <Routes>
+                <Route element={<PublicRoute />}>
+                  <Route path="register" element={<Registration />} />
+                  <Route path="login" element={<Login />} />
+                </Route>
+                <Route element={<PrivateRoute />}>
+                  <Route path="/contacts" element={<Contacts />} />
+                </Route>
+                <Route path="*" element={<Navigate to="/login" />} />
+              </Routes>
+            </Suspense>
+          </Container>
+        </>
+      )}
     </>
   );
 };
