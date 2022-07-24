@@ -17,6 +17,7 @@ export const App = () => {
   const navigate = useNavigate();
 
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);

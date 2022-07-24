@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function UserMenu() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-
   return (
     <>
       <Navbar bg="dark" variant="dark">
